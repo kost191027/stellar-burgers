@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { TConstructorIngredient, TIngredient } from '@utils-types';
-import { v4 as uuidv4 } from 'uuid';
 
 export type TConstructorState = {
   bun: TIngredient | null;
@@ -23,19 +22,18 @@ const constructorSlice = createSlice({
   name: 'constructor',
   initialState,
   reducers: {
-    addIngredient: (state, action: PayloadAction<TIngredient>) => {
+    addIngredient: (state, action: PayloadAction<TConstructorIngredient>) => {
       ensureIngredientsArray(state);
       const ingredient = action.payload;
       if (ingredient.type === 'bun') {
-        state.bun = ingredient;
+        // Для булок сохраняем только базовые свойства TIngredient
+        const { id, ...bunData } = ingredient;
+        state.bun = bunData as TIngredient;
         return;
       }
 
-      const constructorIngredient: TConstructorIngredient = {
-        ...ingredient,
-        id: uuidv4()
-      };
-      state.ingredients.push(constructorIngredient);
+      // Для остальных ингредиентов используем уже готовый TConstructorIngredient с id
+      state.ingredients.push(ingredient);
     },
     removeIngredient: (state, action: PayloadAction<string>) => {
       ensureIngredientsArray(state);

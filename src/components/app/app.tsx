@@ -92,7 +92,22 @@ const App: FC = () => {
   const backgroundLocation = state?.backgroundLocation || state?.background;
 
   const handleCloseModal = () => {
-    navigate(-1);
+    // Если есть backgroundLocation, используем его для перехода
+    if (backgroundLocation) {
+      navigate(backgroundLocation.pathname);
+    } else {
+      // Иначе определяем базовый путь из текущего URL
+      const currentPath = location.pathname;
+      if (currentPath.startsWith('/feed/')) {
+        navigate('/feed');
+      } else if (currentPath.startsWith('/profile/orders/')) {
+        navigate('/profile/orders');
+      } else if (currentPath.startsWith('/ingredients/')) {
+        navigate('/');
+      } else {
+        navigate(-1);
+      }
+    }
   };
 
   return (
