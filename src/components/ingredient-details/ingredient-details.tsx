@@ -1,12 +1,32 @@
-import { FC } from 'react';
+import { FC, useEffect, useMemo } from 'react';
+import { useParams } from 'react-router-dom';
 import { Preloader } from '../ui/preloader';
 import { IngredientDetailsUI } from '../ui/ingredient-details';
+import { useDispatch, useSelector } from '../../services/store';
+import {
+  selectIngredients,
+  selectIsIngredientsLoading
+} from '../../services/selectors/ingredients';
+import { fetchIngredients } from '../../services/slices/ingredientsSlice';
 
 export const IngredientDetails: FC = () => {
-  /** TODO: взять переменную из стора */
-  const ingredientData = null;
+  const { id } = useParams<{ id: string }>();
+  const dispatch = useDispatch();
+  const ingredients = useSelector(selectIngredients);
+  const isLoading = useSelector(selectIsIngredientsLoading);
 
-  if (!ingredientData) {
+  useEffect(() => {
+    if (!ingredients.length && !isLoading) {
+      dispatch(fetchIngredients());
+    }
+  }, [dispatch, ingredients.length, isLoading]);
+
+  const ingredientData = useMemo(
+    () => ingredients.find((ing) => ing._id === id),
+    [ingredients, id]
+  );
+
+  if (isLoading || !ingredientData) {
     return <Preloader />;
   }
 
