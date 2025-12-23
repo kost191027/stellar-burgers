@@ -3,3 +3,8 @@ node_modules
 .idea
 dist
 WARP.md
+
+cypress/screenshots
+cypress/videos
+
+coverage

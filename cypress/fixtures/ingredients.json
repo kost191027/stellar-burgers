@@ -1,0 +1,44 @@
+{
+  "success": true,
+  "data": [
+    {
+      "_id": "bun-test-1",
+      "name": "Булка тестовая",
+      "type": "bun",
+      "proteins": 10,
+      "fat": 5,
+      "carbohydrates": 20,
+      "calories": 200,
+      "price": 100,
+      "image": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",
+      "image_large": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",
+      "image_mobile": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+    },
+    {
+      "_id": "main-test-1",
+      "name": "Начинка тестовая",
+      "type": "main",
+      "proteins": 15,
+      "fat": 10,
+      "carbohydrates": 5,
+      "calories": 150,
+      "price": 60,
+      "image": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",
+      "image_large": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",
+      "image_mobile": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+    },
+    {
+      "_id": "sauce-test-1",
+      "name": "Соус тестовый",
+      "type": "sauce",
+      "proteins": 0,
+      "fat": 1,
+      "carbohydrates": 2,
+      "calories": 10,
+      "price": 20,
+      "image": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",
+      "image_large": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",
+      "image_mobile": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+    }
+  ]
+}
